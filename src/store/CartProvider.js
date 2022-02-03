@@ -1,13 +1,10 @@
 import React, { useReducer } from 'react';
 import CartContext from './cart-context';
 
-
 const defaultCartState = {
     items: [],
     totalAmount: 0,
 };
-
-
 
 const cartReducer = (state, action) => {
 
@@ -17,9 +14,9 @@ const cartReducer = (state, action) => {
 
 
         /* check if the item is already in the cart, returns the index if exists, returns null if doesn't exist */
-        const existingCartItemIndex = state.items.findIndex(item =>{
-            return item.id === action.item.id;
-        });
+        const existingCartItemIndex = state.items.findIndex(item =>
+            item.id === action.item.id
+        );
 
         /* get the existing item */
         const existingCartItem = state.items[existingCartItemIndex];
@@ -54,9 +51,46 @@ const cartReducer = (state, action) => {
         };
     }
 
-    else if(action.type === 'REMOVE')
+    /* remove the item in cart */
+    if(action.type === 'REMOVE')
     {
+       
+        /* find the existing item in the array */
+        const existingCartItemIndex = state.items.findIndex(
+            (item) => item.id === action.id
+        );        
 
+        /* get a hold of the existing item in the array */
+        const existingItem = state.items[existingCartItemIndex];
+
+        const updatedTotalAmount = state.totalAmount - existingItem.price;
+
+        let updatedItems;
+
+        /* if there is only 1 left of the item */
+        if(existingItem.amount === 1)
+        {
+            /* remove item from array */
+            updatedItems = state.items.filter(item => item.id !== action.id);
+        }
+
+        /* there is more than 1 */
+        else
+        {
+            /* update the amount */
+            const updatedItem = {...existingItem, amount: existingItem.amount - 1}; 
+
+            /* copy all existing elements into new array */
+            updatedItems = [...state.items];
+
+            /* update the existing cart element to the updateItem */
+            updatedItems[existingCartItemIndex] = updatedItem;
+        }
+
+        return {
+            items: updatedItems,
+            totalAmount: updatedTotalAmount
+        };
     }
 
     return defaultCartState;

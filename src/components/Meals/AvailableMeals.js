@@ -5,27 +5,27 @@ import Card from '../UI/Card';
 const DUMMY_MEALS = [
     {
       id: 'm1',
-      name: 'Sushi',
-      description: 'Finest fish and veggies',
-      price: 22.99,
+      name: 'Tres Diablos Sushi Roll',
+      description: 'spicy tuna, cucumber, cilantro, topped w/ tuna, salmon, yellowtail, tobiko, scallion, drizzled w/ strawberry habanero sauce',
+      price: 22.00,
     },
     {
       id: 'm2',
-      name: 'Schnitzel',
-      description: 'A german specialty!',
-      price: 16.5,
+      name: 'Pho Tai Nam',
+      description: '24 hours beef broth, Painted Hill Farms eye of round steak and beef brisket, rice noodles, green onion, bean sprout, basil, lime, hoisin, and Sriracha hot sauce.',
+      price: 17.90,
     },
     {
       id: 'm3',
-      name: 'Barbecue Burger',
-      description: 'American, raw, meaty',
-      price: 12.99,
+      name: 'Combo Vermicelli Noodles',
+      description: 'Grilled Draper Valley chicken thigh, shrimp, house-made beef & pork sausage, crispy imperial roll, rice vermicelli noodles, lettuce, bean sprout, cucumber, pickles, fresh herbs, roasted peanut, crispy shallot, and nuoc cham.',
+      price: 21.00,
     },
     {
       id: 'm4',
-      name: 'Green Bowl',
-      description: 'Healthy...and green...',
-      price: 18.99,
+      name: 'Carne Asada',
+      description: 'Grilled steak marinated with our secret seasoning, and served with rice, beans, guacamole, onion, and your choice of flour or corn tortillas',
+      price: 13.99,
     },
   ];
 
